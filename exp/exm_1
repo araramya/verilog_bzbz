@@ -1,0 +1,46 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x55d95e544eb0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x55d95e545040 .scope module, "testbench" "testbench" 3 9;
+ .timescale 0 0;
+L_0x7fd99bc29018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55d95e555970_0 .net "A", 0 0, L_0x7fd99bc29018;  1 drivers
+L_0x7fd99bc29060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55d95e555a30_0 .net "B", 0 0, L_0x7fd99bc29060;  1 drivers
+L_0x7fd99bc290a8 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+v0x55d95e555ad0_0 .net "C", 0 0, L_0x7fd99bc290a8;  1 drivers
+v0x55d95e555ba0_0 .net "OUT", 0 0, L_0x55d95e555dd0;  1 drivers
+S_0x55d95e50bcf0 .scope module, "u_D" "D" 3 14, 3 1 0, S_0x55d95e545040;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "out";
+    .port_info 1 /INPUT 1 "a";
+    .port_info 2 /INPUT 1 "b";
+    .port_info 3 /INPUT 1 "c";
+L_0x55d95e555d60 .functor AND 1, L_0x7fd99bc29018, L_0x7fd99bc29060, C4<1>, C4<1>;
+L_0x55d95e555dd0 .functor OR 1, L_0x55d95e555d60, L_0x7fd99bc290a8, C4<0>, C4<0>;
+v0x55d95e50bef0_0 .net "a", 0 0, L_0x7fd99bc29018;  alias, 1 drivers
+v0x55d95e5555c0_0 .net "b", 0 0, L_0x7fd99bc29060;  alias, 1 drivers
+v0x55d95e555680_0 .net "c", 0 0, L_0x7fd99bc290a8;  alias, 1 drivers
+v0x55d95e555720_0 .net "e", 0 0, L_0x55d95e555d60;  1 drivers
+v0x55d95e5557e0_0 .net "out", 0 0, L_0x55d95e555dd0;  alias, 1 drivers
+    .scope S_0x55d95e545040;
+T_0 ;
+    %vpi_call/w 3 19 "$dumpfile", "exm_1.vcd" {0 0 0};
+    %vpi_call/w 3 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55d95e545040 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "./delay_example.v";
